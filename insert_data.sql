@@ -15,7 +15,7 @@ values(1 , 3 , 405.68),
       (5,2,358.3),
       (2,4 ,456.09),
       (3,5, 345.87),
-      (1 , 3 , 405.68),
+      (1 , 3 , 405.68),+
       (4,1 , 56.98);
 
 insert into Schedules(route_id , vehicle_id , departure_time, arrival_time, fare)
@@ -30,6 +30,7 @@ values('Priya' , 'priya19@gmail.com','9876543210',22),
       ('Mangai','mangai@gmail.com','8765432291',32),
       ('Karuppiah','karuppiah@gmail.com','9624567899',42),
       ('Sai','sai@gmail.com','9876245690',27);
+      ('baba','baba@gmail.com','9876546789',87);
 insert into Bookings(schedule_id , passenger_id,seat_number,booking_date,status)
 values(3,2,'23A','2026-04-10 08:30:00','confirmed'),
       (4,3,'26B','2026-05-10 09:30:00','confirmed'),
