@@ -20,3 +20,17 @@ foreign key(vehicle_id) references Vehicles(vehicle_id),
 departure_time datetime,
 arrival_time datetime,
 fare decimal(6,2));
+
+CREATE TABLE Passengers (passenger_id INT PRIMARY KEY auto_increment ,
+name varchar(50) not null, email varchar(50) not null ,
+phone varchar(20) not null, age int not null);
+
+CREATE TABLE Bookings (booking_id INT PRIMARY KEY auto_increment,
+schedule_id int not null,
+passenger_id int not null,
+foreign key(schedule_id) references Schedules(schedule_id),
+foreign key(passenger_id) references Passengers(passenger_id),
+seat_number varchar(5) not null ,
+booking_date datetime,
+status ENUM('confirmed','cancelled')
+);
