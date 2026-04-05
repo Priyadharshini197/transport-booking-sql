@@ -11,3 +11,12 @@ destination_station_id INT NOT NULL , distance_km decimal(8,2),
 foreign key(origin_station_id) references Stations(station_id),
 foreign key(destination_station_id) references Stations(station_id)
 );
+
+CREATE TABLE Schedules (schedule_id INT PRIMARY KEY auto_increment , 
+route_id INT not null,
+vehicle_id INT not null,
+foreign key(route_id) references Routes(route_id),
+foreign key(vehicle_id) references Vehicles(vehicle_id),
+departure_time datetime,
+arrival_time datetime,
+fare decimal(6,2));
