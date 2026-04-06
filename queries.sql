@@ -132,6 +132,21 @@ end //
 create index idx_booking_passenger
 on bookings(passenger_id);
 
+##### 12.Find routes where revenue is ABOVE average revenue(CTE)
+with route_revenue_cte AS (
+    select s.station_name as origin,
+           s2.station_name as destination,
+           SUM(sc.fare) as total_revenue
+    from Schedules sc
+    join Routes r on sc.route_id = r.route_id
+    join Stations s on r.origin_station_id = s.station_id
+    join Stations s2 on r.destination_station_id = s2.station_id
+    group by s.station_name, s2.station_name
+)
+select *
+from route_revenue_cte
+where total_revenue > (select avg(total_revenue) FROM route_revenue_cte)
+order by total_revenue DESC;
 
 
 
