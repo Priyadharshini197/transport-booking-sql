@@ -1,4 +1,4 @@
-CREATE DATABASE transport_booking;
+CREATE DATABASE IF NOT EXISTS transport_booking;
 USE transport_booking;
 CREATE TABLE Stations(station_id INT PRIMARY KEY auto_increment, station_name VARCHAR(50) NOT NULL ,
 city VARCHAR(50) NOT NULL , state VARCHAR(50) NOT NULL);
