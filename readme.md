@@ -1,32 +1,38 @@
- #Bus & Train Route Booking System — SQL Mini Project
+ # Bus & Train Route Booking System
+ ### SQL Mini Project
 
-A relational database project that simulates a transport booking platform 
-similar to RedBus or IRCTC. Designed to store and analyze route, vehicle, 
-schedule, passenger, and booking data using MySQL.
+ A relational database project that simulates a real-world transport booking platform similar to RedBus or IRCTC. Designed to store and analyze route, vehicle, schedule, passenger, and booking data using MySQL.
 
-#Database Tables
+ ## Project Structure
+ ```
+ transport-booking-sql/
+├── schema.sql            → All CREATE TABLE statements
+├── insert_data.sql       → Sample data 
+├── queries.sql           → Analysis queries, views, procedure, trigger
+├── screenshots/          → Query output screenshots
+└── README.md             → Project documentation
+```
 
-| Table       | Description                              |
-|-------------|------------------------------------------|
-| Stations    | Stores station name, city, state         |
-| Vehicles    | Bus and train details with seat capacity |
-| Routes      | Origin to destination with distance      |
-| Schedules   | Timing and fare for each route + vehicle |
-| Passengers  | Passenger personal details               |
-| Bookings    | Booking records with status              |
+## Tech Stack
 
-#Tech Stack
+| Tool | Usage |
+|---|---|
+| MySQL 8.0 | Database engine |
+| MySQL Workbench | Query execution and testing |
+| VS Code | Script writing and organisation |
+| Git & GitHub | Version control |
 
-- Database : MySQL 8.0
-- Tool     : MySQL Workbench
-- Editor   : VS Code
+##  How To Run
+```sql
+-- Step 1: Run schema first
+source schema.sql;
 
-#How to Run
+-- Step 2: Insert sample data
+source insert_data.sql;
 
-1. Open MySQL Workbench
-2. Run schema.sql first
-3. Run insert_data.sql second
-4. Run queries.sql to see results
+-- Step 3: Run analysis queries
+source queries.sql;
+```
 
-
-
+##Author
+K.Priyadharshini

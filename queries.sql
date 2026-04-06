@@ -148,6 +148,31 @@ from route_revenue_cte
 where total_revenue > (select avg(total_revenue) FROM route_revenue_cte)
 order by total_revenue DESC;
 
+####### 13.Prevent overbooking (using Trigger)
+
+DELIMITER //
+create Trigger prevent_overbooking
+before insert on Bookings
+for EACH row
+BEGIN
+    DECLARE available INT;
+    
+    select (v.total_seats - COUNT(b.booking_id))
+    into available
+    from Schedules sc
+    join Vehicles v on sc.vehicle_id = v.vehicle_id
+    left join Bookings b on sc.schedule_id = b.schedule_id
+    where sc.schedule_id = NEW.schedule_id
+    group by v.total_seats;
+    
+    IF available <= 0 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Booking failed! No seats available on this schedule.';
+    END IF;
+END //
+DELIMITER ;
+
+
 
 
 
